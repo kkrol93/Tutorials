@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LI</title>
+    <style>
+            button{
+                display: block;
+                margin: 0 auto;
+                border: 4px dashed black;
+                background-color: transparent;
+                padding: 15px 40px;
+                font-size: 40px;
+                transition: linear 0.3s;
+            }
+            button:hover {
+                background-color: black;
+                color: white;
+            }
+            button:focus {
+                outline: none;
+            }
+            .big-size {
+                font-size: 40px;
+            }
+        </style>
+</head>
+<body>
+    <button>Click Me!</button>
+    <ul></ul>
+    <script>
+    const btn = document.querySelector('button');
+    const ul = document.querySelector('ul');
+    let number = 1;
+    btn.addEventListener('click', ()=> {
+        const li = document.createElement('li');
+        li.textContent = number;
+        if (number%3 == 0) {
+            li.classList.add('big-size');
+        }
+        ul.appendChild(li);
+        number += 2;
+    })
+
+    </script>
+    
+</body>
+</html>
