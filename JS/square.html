@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Square</title>
+    <style>
+        body{
+            height: 10000vh;
+        }
+    div{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        background-color: red;
+        transform: translate(-50%,-50%);
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+    const square = document.querySelector('div');
+    document.body.appendChild(square);
+    let size = 10;
+    let grow = true;
+    square.style.width = size + "px";
+    square.style.height = size + "px";
+
+     window.addEventListener('scroll', ()=> {
+        if (grow) {
+            square.style.width = size + "px";
+            square.style.height = size + "px";
+            document.body.style.backgroundColor= "black";
+            size += 10;
+        } else {
+            square.style.width = size + "px";
+            square.style.height = size + "px";
+            document.body.style.backgroundColor= "blue";
+            size += -10;
+        }
+
+        if (size >= window.innerWidth/2) {
+            grow = !grow;
+        } else if (size == 0) {
+            grow = !grow;
+        }
+    })
+    </script>
+</body>
+</html>
