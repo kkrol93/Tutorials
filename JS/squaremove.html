@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>squaremove</title>
+    <style>
+        div {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div></div>
+    <script>
+        const div = document.body.querySelector('div');
+        let divX = 150;
+        let divY = 50;
+        div.style.left = `${divX}px`;
+        div.style.top = `${divY}px`;
+        let insertDivX;
+        let insertDivY;
+        let drawActive = false;
+
+        div.addEventListener('mousedown', (e) => {
+            drawActive = !drawActive;
+            div.style.backgroundColor = 'orange';
+            insertDivX = e.offsetX;
+            insertDivY = e.offsetY;
+        })
+        div.addEventListener('mousemove', (e) => {
+            if(drawActive) {                 
+                divX = e.clientX - insertDivX;
+                divY = e.clientY - insertDivY;
+                div.style.left = `${divX}px`;
+                div.style.top = `${divY}px`;
+            }
+        })
+        div.addEventListener('mouseup', () => {
+            drawActive = !drawActive;
+            div.style.backgroundColor = 'blue';
+        })
+
+    </script>
+</body>
+</html>

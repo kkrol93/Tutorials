@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadanie 1 - zmiana koloru po najechaniu</title>
+
+    <style>
+	*{
+	margin:0;
+	border:0;
+	}
+	.bg {
+		background-color:gray;
+		width:100%;
+		height:100vh;
+		transition:.5s;
+		
+	}
+	.circle {
+		border: 2px solid #fff;
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		position: fixed;
+		cursor: pointer;
+		z-index:1;
+	}
+	div.green {
+		background-color: green;
+		top: 0;
+		right: 0;
+	}
+	div.green:hover ~ .bg {
+		background-color: green;
+		
+	}
+	div.green:hover ~ .bg p.green {
+		opacity:1;		
+	}
+	div.red {
+		background-color: red;
+		top: 0;
+		left: 0:		
+	}
+	div.red:hover ~ .bg {
+		background-color: red;
+		
+	}
+	div.red:hover ~ .bg p.red {
+		opacity:1;		
+	}
+	div.blue {
+		background-color: blue;
+		bottom: 0;
+		left: 0;
+	}
+	div.blue:hover ~ .bg {
+		background-color: blue;
+		
+	}
+	div.blue:hover ~ .bg p.blue {
+		opacity:1;		
+	}
+	div.orange {
+		background-color: orange;
+		bottom: 0;
+		right: 0;
+	}
+	div.orange:hover ~ .bg {
+		background-color: orange;
+		
+	}
+	div.orange:hover ~ .bg p.orange {
+		opacity:1;		
+	}
+	
+	.bg p {
+	line-height:100vh;
+		text-align: center;
+		font-size: 50px;
+		position:absolute;
+		width:100%;
+		opacity:0;
+		transition:.5s;
+		color:white;
+	}
+	
+	
+    </style>
+</head>
+
+<body>
+    <div class="red circle"></div>
+    <div class="green circle"></div>
+    <div class="blue circle"></div>
+    <div class="orange circle"></div>
+    <div class="bg">
+        <p class="red">Czerwony</p>
+        <p class="green">Zielony</p>
+        <p class="blue">Niebieski</p>
+        <p class="orange">Pomarańczowy</p>
+    </div>
+</body>
+
+</html>
