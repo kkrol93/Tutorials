@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rand Name</title>
+    <style>
+        html {
+            font-family: arial;
+        }
+
+        button {
+            display: block;
+            margin: 50px auto 50px;
+            background-color: white;
+            border: 5px solid cadetblue;
+            padding: 20px 50px;
+            font-size: 22px;
+        }
+        div {
+            margin: 10px;
+            font-size: 16px;
+            
+        }
+    </style>
+</head>
+<body>
+    <button>Wylosuj KODY!</button>
+    <section> </section>
+    <script>
+        const chars = 'ABCDEFGIJK0123456789';
+        const btn = document.querySelector('button');
+        const section = document.querySelector('section');
+        const codesNumber = 20;
+        const charsNumber = 10;
+
+        const codesGenerator = () => {
+            for(let i=0; i<codesNumber; i++) {
+                let code = "";
+                for(let i=0; i < charsNumber; i++) {
+                    const index = Math.floor(Math.random()*chars.length);
+                    code += chars[index];
+                }
+                const div = document.createElement('div');                
+                div.textContent = code;
+                section.appendChild(div);
+                
+            }
+        }
+        btn.addEventListener('click', codesGenerator)
+    </script>
+</body>
+</html>

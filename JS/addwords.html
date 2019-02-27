@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Dodaj do tablicy</title>
+ <style>
+  body * {
+  font-size: 26px;
+ }
+ </style>
+</head>
+<body>
+ <form>
+  <input type="text">
+  <button>Dodaj</button>
+ </form>
+ <div></div>
+ <script>
+    const names = [];
+
+    const addName = e => {
+        e.preventDefault();
+        const input = document.querySelector('input');
+        const div = document.querySelector('div');
+        const newName = input.value;
+        if(input.value.length) {
+            for(name of names) {
+                 if (name === newName) {
+                     alert("To już jest!")
+                     return
+                 }
+            }
+        names.push(newName);
+        div.textContent = names + ", "; 
+        input.value = '';
+        }
+    }
+    document.querySelector('button').addEventListener('click', addName);
+ </script>
+</body>
+</html>
