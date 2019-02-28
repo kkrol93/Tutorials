@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form>
+        
+        <div class="question"></div>
+        <input type="radio" name="choices" id="1" value="A"><span class="odp1"></span>
+        <input type="radio" name="choices" id="2" value="B"><span class="odp2"></span>
+        <input type="radio" name="choices" id="3" value="C"><span class="odp3"></span>
+        <button>Odpowiedz!</button>
+        <div class="score"></div> <div class="try"></div>
+       </form> 
+       <script>
+       const questionDiv = document.querySelector('.question');
+       const questions = [
+                            ["What is 36 + 42", "64", "78", "76", "B"],
+                            ["What is 7 x 4?", "21", "27", "28", "C"],
+                            ["What is 16 / 4?", "4", "6", "3", "A"],
+                            ["What is 8 x 12?", "88", "112", "96", "C"]
+                        ];
+        let pos = 0;
+        let score = 0;
+        let choice;
+        const span1 = document.querySelector('.odp1');
+        const span2 = document.querySelector('.odp2');
+        const span3 = document.querySelector('.odp3');
+        const scoreField = document.querySelector('.score');
+        const tryField = document.querySelector('.try');
+        questionDiv.textContent = questions[pos][0];
+        span1.textContent = questions[pos][1];
+        span2.textContent = questions[pos][2];
+        span3.textContent = questions[pos][3];
+        scoreField.textContent = score;
+        tryField.textContent = pos;
+        const btn = document.querySelector('button').addEventListener('click', (e)=>{
+            e.preventDefault();
+            const input1 = document.getElementById('1');
+            const input2 = document.getElementById('2');
+            const input3 = document.getElementById('3');
+            choices = document.getElementsByName("choices");
+            
+            questionDiv.textContent = questions[pos][0];
+            span1.textContent = questions[pos][1];
+            span2.textContent = questions[pos][2];
+            span3.textContent = questions[pos][3];
+            for(var i=0; i<choices.length; i++){
+                if(choices[i].checked){
+                    choice = choices[i].value;
+                    
+                }
+            }
+            console.log(questions[pos][4]);
+            if(choice == questions[pos][4]){
+    //each time there is a correct answer this value increases
+                score += 1;
+                
+            }
+            scoreField.textContent = score;
+            tryField.textContent = pos+1;
+            pos++;
+        })
+        
+       </script>
+</body>
+</html>
